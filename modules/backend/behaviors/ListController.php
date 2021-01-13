@@ -335,7 +335,7 @@ class ListController extends ControllerBehavior
         $query = $model->newQuery();
         $this->controller->listExtendQueryBefore($query, $definition);
 
-        $query->whereIn($model->getKeyName(), $checkedIds);
+        $query->whereIn($model->getTable() . '.' . $model->getKeyName(), $checkedIds);
         $this->controller->listExtendQuery($query, $definition);
 
         /*
